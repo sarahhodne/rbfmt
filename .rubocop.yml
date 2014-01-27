@@ -1,0 +1,15 @@
+AllCops:
+  Includes:
+    - 'Gemfile'
+    - 'Rakefile'
+    - 'rbfmt.gemspec'
+
+Documentation:
+  Enabled: false
+
+EndAlignment:
+  AlignWith: variable
+
+CaseIndentation:
+  IndentWhenRelativeTo: end
+  IndentOneStep: false
