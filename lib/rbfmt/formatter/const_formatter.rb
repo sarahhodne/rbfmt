@@ -6,7 +6,13 @@ module Rbfmt
       register :const
 
       def format
-        node.children.last.to_s
+        [scope, node.children.last.to_s].compact.join('::')
+      end
+
+      private
+
+      def scope
+        visit(node.children.first) if node.children.first
       end
     end
   end
