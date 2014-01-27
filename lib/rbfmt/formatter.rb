@@ -24,6 +24,10 @@ module Rbfmt
       Rbfmt::Formatter.add(node_types, self)
     end
 
+    def self.format(node)
+      self[node.type].new(node).format
+    end
+
     attr_reader :node
 
     def initialize(node)
@@ -33,7 +37,7 @@ module Rbfmt
     protected
 
     def visit(other)
-      Formatter[other.type].new(other).format
+      Formatter.format(other)
     end
   end
 end

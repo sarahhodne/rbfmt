@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require 'rbfmt'
+require 'parser/current'
+
+ARGV.each do |filename|
+  ast = Parser::CurrentRuby.parse(File.read(filename))
+  puts Rbfmt::Formatter.format(ast)
+end
