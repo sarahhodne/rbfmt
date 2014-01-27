@@ -41,5 +41,9 @@ module Rbfmt
     def visit(other)
       Formatter.format(other)
     end
+
+    def indent(code)
+      code.gsub(/^/, '  ')
+    end
   end
 end
