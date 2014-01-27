@@ -9,7 +9,8 @@ module Rbfmt
 
       def [](node_type)
         formatters.fetch(node_type.to_sym) do
-          fail "No formatter for node type #{node_type}"
+          warn "No formatter for node type #{node_type}"
+          Formatter
         end
       end
 
@@ -34,6 +35,10 @@ module Rbfmt
 
     def initialize(node)
       @node = node
+    end
+
+    def format
+      ''
     end
 
     protected
