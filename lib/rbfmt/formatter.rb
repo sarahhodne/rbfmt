@@ -8,7 +8,9 @@ module Rbfmt
       end
 
       def [](node_type)
-        formatters.fetch(node_type.to_sym) { raise "No formatter for node type #{node_type}" }
+        formatters.fetch(node_type.to_sym) do
+          fail "No formatter for node type #{node_type}"
+        end
       end
 
       private
